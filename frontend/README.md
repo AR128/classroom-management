@@ -1,43 +1,71 @@
-# Student Management — Frontend
+# Student Management Frontend
 
-This is the React frontend for the Student Management project, built with Vite.
+React single-page application for the Student Management system. It provides separate admin and student sign-in flows, protected dashboards, and student profile management.
 
-Tech stack
+## Technology
 
-- React
+- React 19
 - Vite
-- Tailwind CSS (installed)
+- React Router
+- Tailwind CSS
 
-Quick start
+## Local setup
 
-1. Install dependencies
+Prerequisites: Node.js 18 or later and a running backend API.
 
 ```bash
 cd frontend
 npm install
 ```
 
-2. Run the dev server
+Create `frontend/.env` from `.env.example` and set the API base URL:
+
+```env
+VITE_BACKEND_URL=http://localhost:3000
+```
+
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-3. Build for production
+The app is served at the URL displayed by Vite, normally `http://localhost:5173`.
 
-```bash
-npm run build
-```
+## Scripts
 
-Notes
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Vite development server. |
+| `npm run build` | Generate the production site in `dist/`. |
+| `npm start` | Preview the production build locally. |
+| `npm run lint` | Run ESLint. |
 
-- The frontend expects the backend API to be available (default: `http://localhost:3000`). If your backend runs on a different host/port, update the API base URL in the code where requests are made.
-- `npm run lint` runs ESLint across the frontend source.
+## Configuration
 
-Main files
+`VITE_BACKEND_URL` is required. It is read at build time, so restart the development server after changing `.env` and trigger a new deployment after changing it in Vercel.
 
-- [src/main.jsx](src/main.jsx) — app entry
-- [src/App.jsx](src/App.jsx) — top-level routes
-- [src/pages](src/pages) — page components (Admin, Student, Home, ProtectedRoute, etc.)
+Do not add a trailing slash. API requests are assembled from this value, for example `${VITE_BACKEND_URL}/admin/login`.
 
-If you want, I can also add a small `.env` example for the frontend to document any environment variables used by API clients.
+## Vercel deployment
+
+Create a Vercel project with `frontend` as its root directory. Use:
+
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Environment variable | `VITE_BACKEND_URL=https://your-render-service.onrender.com` |
+
+Deploy the backend first, then use its public Render URL as `VITE_BACKEND_URL`.
+
+## Routes
+
+| Route | Description |
+| --- | --- |
+| `/` | Landing page |
+| `/admin/login` | Admin login |
+| `/admin/dashboard` | Admin dashboard |
+| `/admin/dashboard/students` | Student list and management |
+| `/student/login` | Student login |
+| `/student/dashboard` | Student dashboard |
