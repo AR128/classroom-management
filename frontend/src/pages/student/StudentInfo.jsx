@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchWithAuth } from "../../utils/tokenStorage.js";
+import apiBaseUrl from "../../config/api.js";
 
 export default function StudentInfo() {
   const { id } = useParams();
@@ -10,7 +11,7 @@ export default function StudentInfo() {
   useEffect(() => {
     const fetchStudentInfo = async () => {
       try {
-        const res = await fetchWithAuth(`http://localhost:3000/student/dashboard/${id}`);
+        const res = await fetchWithAuth(`${apiBaseUrl}/student/dashboard/${id}`);
         const data = await res.json();
         if (data.success) {
           setStudent(data.student);

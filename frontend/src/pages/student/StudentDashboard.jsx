@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchWithAuth, clearAccessToken } from "../../utils/tokenStorage.js";
+import apiBaseUrl from "../../config/api.js";
 
 export default function StudentDashboard() {
   const [user, setUser] = useState(null);
@@ -9,7 +10,7 @@ export default function StudentDashboard() {
   useEffect(() => {
     const fetchDashboard = async () => {
       try {
-        const res = await fetchWithAuth("http://localhost:3000/student/dashboard");
+        const res = await fetchWithAuth(`${apiBaseUrl}/student/dashboard`);
         const data = await res.json();
         if (data.success) {
           setUser(data.user);

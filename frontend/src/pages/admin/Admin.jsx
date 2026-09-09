@@ -26,7 +26,7 @@ export default function AdminPage() {
         <div className="grid gap-6 md:grid-cols-2">
           <Link
             to="/admin/login"
-            className="group relative overflow-hidden rounded-[2rem] border border-blue-100 bg-linear-to-br from-blue-50 to-indigo-50/50 p-8 text-left transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1"
+            className="group relative overflow-hidden rounded-4xl border border-blue-100 bg-linear-to-br from-blue-50 to-indigo-50/50 p-8 text-left transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1"
           >
             <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-4 group-hover:translate-x-0">
                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
@@ -42,7 +42,7 @@ export default function AdminPage() {
 
           <Link
             to="/"
-            className="group rounded-[2rem] border border-slate-200 bg-white/50 p-8 text-left transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1"
+            className="group rounded-4xl border border-slate-200 bg-white/50 p-8 text-left transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1"
           >
             <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-slate-50 text-slate-500 border border-slate-100 shadow-sm">
                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>

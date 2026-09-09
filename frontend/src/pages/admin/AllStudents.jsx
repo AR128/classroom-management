@@ -6,6 +6,7 @@ import {
   fetchWithAuth,
   getAccessToken,
 } from "../../utils/tokenStorage";
+import apiBaseUrl from "../../config/api.js";
 import editIcon from "../../assets/edit.svg";
 import deleteIcon from "../../assets/delete.svg";
 import dropdownIcon from "../../assets/dropdown.svg";
@@ -72,7 +73,7 @@ function AllStudents() {
     }
     try {
       const res = await fetchWithAuth(
-        `http://localhost:3000/admin/dashboard/students/${id}`,
+        `${apiBaseUrl}/admin/dashboard/students/${id}`,
         {
           method: "DELETE",
         },
@@ -100,7 +101,7 @@ function AllStudents() {
 
       try {
         const response = await fetchWithAuth(
-          "http://localhost:3000/admin/dashboard/students",
+          `${apiBaseUrl}/admin/dashboard/students`,
           {
             method: "GET",
           },
@@ -128,7 +129,7 @@ function AllStudents() {
       if (!token) return;
       try {
         const res = await fetchWithAuth(
-          "http://localhost:3000/admin/dashboard/add-student/student-options",
+          `${apiBaseUrl}/admin/dashboard/add-student/student-options`,
           {
             method: "GET",
           },

@@ -5,6 +5,7 @@ import {
   fetchWithAuth,
   getAccessToken,
 } from "../../utils/tokenStorage";
+import apiBaseUrl from "../../config/api.js";
 
 export default function AddStudent() {
   const location = useLocation();
@@ -95,8 +96,8 @@ export default function AddStudent() {
     }
 
     const url = isEdit
-      ? `http://localhost:3000/admin/dashboard/students/${studentId}`
-      : "http://localhost:3000/admin/dashboard/add-student";
+      ? `${apiBaseUrl}/admin/dashboard/students/${studentId}`
+      : `${apiBaseUrl}/admin/dashboard/add-student`;
 
     const method = isEdit ? "PUT" : "POST";
 
@@ -177,7 +178,7 @@ export default function AddStudent() {
 
       try {
         const res = await fetchWithAuth(
-          "http://localhost:3000/admin/dashboard/add-student/student-options",
+          `${apiBaseUrl}/admin/dashboard/add-student/student-options`,
           {
             method: "GET",
           },

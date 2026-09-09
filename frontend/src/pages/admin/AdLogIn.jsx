@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { setAccessToken } from "../../utils/tokenStorage.js";
+import apiBaseUrl from "../../config/api.js";
 
 export default function AdLogIn() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ export default function AdLogIn() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/admin/login", {
+      const response = await fetch(`${apiBaseUrl}/admin/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

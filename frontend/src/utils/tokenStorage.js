@@ -1,3 +1,5 @@
+import apiBaseUrl from "../config/api.js";
+
 export const getAccessToken = () => sessionStorage.getItem("accessToken");
 
 export const setAccessToken = (token) => {
@@ -45,7 +47,7 @@ export const getAuthHeaders = (token, extraHeaders = {}) => ({
 
 export const refreshAccessToken = async () => {
   try {
-    const response = await fetch("http://localhost:3000/admin/refresh", {
+    const response = await fetch(`${apiBaseUrl}/admin/refresh`, {
       method: "POST",
       credentials: "include",
     });

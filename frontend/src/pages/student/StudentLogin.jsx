@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { setAccessToken } from "../../utils/tokenStorage.js";
+import apiBaseUrl from "../../config/api.js";
 
 export default function StudentLogin() {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export default function StudentLogin() {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:3000/student/login", {
+      const response = await fetch(`${apiBaseUrl}/student/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

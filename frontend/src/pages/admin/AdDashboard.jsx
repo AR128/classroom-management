@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { clearAccessToken, fetchWithAuth } from "../../utils/tokenStorage";
+import apiBaseUrl from "../../config/api.js";
 
 function Dashboard() {
   const [studentCount, setStudentCount] = useState(0);
@@ -12,7 +13,7 @@ function Dashboard() {
     const fetchDashboard = async () => {
       try {
         const dashboardRes = await fetchWithAuth(
-          "http://localhost:3000/admin/dashboard",
+          `${apiBaseUrl}/admin/dashboard`,
           {
             method: "GET",
           },
@@ -22,7 +23,7 @@ function Dashboard() {
         console.log(dashboardJson);
 
         const countRes = await fetchWithAuth(
-          "http://localhost:3000/admin/dashboard/add-student/student-count",
+          `${apiBaseUrl}/admin/dashboard/add-student/student-count`,
           {
             method: "GET",
           },
@@ -34,7 +35,7 @@ function Dashboard() {
         }
 
         const statusRes = await fetchWithAuth(
-          "http://localhost:3000/admin/dashboard/add-student/status-student",
+          `${apiBaseUrl}/admin/dashboard/add-student/status-student`,
           {
             method: "GET",
           },
